@@ -21,6 +21,11 @@ public class BuddyInfoServiceImpl implements BuddyInfoService {
     }
 
     @Override
+    public Optional<BuddyInfo> fetchBuddyInfoById(Integer buddyInfoId) {
+        return buddyInfoRepository.findById(buddyInfoId);
+    }
+
+    @Override
     public BuddyInfo updateBuddyInfo(BuddyInfo buddyInfo, Integer buddyInfoId) {
         BuddyInfo buInfo = buddyInfoRepository.findById(buddyInfoId).get();
 

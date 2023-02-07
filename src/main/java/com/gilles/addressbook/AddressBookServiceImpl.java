@@ -24,6 +24,11 @@ public class AddressBookServiceImpl implements AddressBookService {
         return (List<AddressBook>) addressBookRepository.findAll();
     }
 
+    @Override
+    public Optional<AddressBook> fetchAddressBookById(Integer addressBookId) {
+        return addressBookRepository.findById(addressBookId);
+    }
+
     // put
     @Override
     public void addToAddressBook(Integer buddyInfoId, Integer addressBookId) {

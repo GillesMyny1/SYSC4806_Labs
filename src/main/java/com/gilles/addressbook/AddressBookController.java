@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AddressBookController {
@@ -18,6 +19,11 @@ public class AddressBookController {
     @GetMapping("/addressbooks")
     public List<AddressBook> fetchAddressBookList() {
         return addressBookService.fetchAddressBookList();
+    }
+
+    @GetMapping("/addressbooks/{id}")
+    public Optional<AddressBook> fetchAddressBookById(@PathVariable("id") Integer addressBookId) {
+        return addressBookService.fetchAddressBookById(addressBookId);
     }
 
     @PutMapping("/addressbooks/{id}/{bid}")

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class BuddyInfoController {
@@ -19,6 +20,11 @@ public class BuddyInfoController {
     @GetMapping("/buddies")
     public List<BuddyInfo> fetchAllBuddyInfo() {
         return buddyInfoService.fetchAllBuddyInfo();
+    }
+
+    @GetMapping("/buddies/{id}")
+    public Optional<BuddyInfo> fetchBuddyInfoById(@PathVariable("id") Integer buddyInfoId) {
+        return buddyInfoService.fetchBuddyInfoById(buddyInfoId);
     }
 
     @PutMapping("/buddies/{id}")
