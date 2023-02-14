@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        th {
+            border: solid 2px black;
+            padding: 5px 5px;
+            background-color: lightblue;
+        }
+        td {
+            border: solid 1px black;
+            padding: 2px 2px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Address Book Display</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Address Book ID</th>
+            <th>Buddy ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="addressBook : ${bookDisplay}">
+            <tr>
+                <td th:text="${addressBook.id}"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <th:block th:each="buddy : ${addressBook.buddyList}">
+                <tr>
+                    <td></td>
+                    <td th:text="${buddy.id}"></td>
+                    <td th:text="${buddy.name}"></td>
+                    <td th:text="${buddy.address}"></td>
+                    <td th:text="${buddy.phoneNumber}"></td>
+                </tr>
+            </th:block>
+        </th:block>
+        </tbody>
+    </table>
+    <br><a href="/createBuddyUI">Create a BuddyInfo</a>
+    <br><a href="/addBuddyToAddressBook">Add BuddyInfo to AddressBook</a>
+</body>
+</html>

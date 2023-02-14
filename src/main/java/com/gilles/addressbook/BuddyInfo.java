@@ -18,10 +18,10 @@ public class BuddyInfo {
     public BuddyInfo() {
     }
 
-    public BuddyInfo(String name, String address, Integer number) {
+    public BuddyInfo(String name, String address, Integer phoneNumber) {
         this.name = name;
         this.address = address;
-        this.phoneNumber = number;
+        this.phoneNumber = phoneNumber;
     }
 
     public Integer getId() {
