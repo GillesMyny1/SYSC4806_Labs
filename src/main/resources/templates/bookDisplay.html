@@ -3,6 +3,8 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script th:src="@{/js/ajax_functions.js}"></script>
     <style>
         th {
             border: solid 2px black;
@@ -17,7 +19,7 @@
     </style>
 </head>
 <body>
-    <h1>Address Book Display</h1>
+    <h1>Address Book List</h1>
     <table>
         <thead>
         <tr>
@@ -29,7 +31,7 @@
         </tr>
         </thead>
         <tbody>
-        <th:block th:each="addressBook : ${bookDisplay}">
+        <th:block th:each="addressBook : ${addressBookList}">
             <tr>
                 <td th:text="${addressBook.id}"></td>
                 <td></td>
@@ -49,7 +51,32 @@
         </th:block>
         </tbody>
     </table>
-    <br><a href="/createBuddyUI">Create a BuddyInfo</a>
-    <br><a href="/addBuddyToAddressBook">Add BuddyInfo to AddressBook</a>
+
+    <h1>Buddies List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Buddy ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="buddyObj : ${buddiesList}">
+            <tr>
+                <td th:text="${buddyObj.id}"></td>
+                <td th:text="${buddyObj.name}"></td>
+                <td th:text="${buddyObj.address}"></td>
+                <td th:text="${buddyObj.phoneNumber}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+    <h1>Commands</h1>
+    <a href="/createBookUI" id="createBookLink">Create an AddressBook</a>
+    <br><br><a href="/createBuddyUI" id="createBuddyLink">Create a BuddyInfo</a>
+    <br><br><a href="/addBuddyToAddressBook" id="addBuddyToBookLink">Add BuddyInfo to AddressBook</a>
 </body>
 </html>

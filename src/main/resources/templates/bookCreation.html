@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <h1>Create a New AddressBook</h1>
+  <form method="post" th:action="@{/createBookUI}">
+    <label for="createBook">Do you want to create a new AddressBook?</label>
+    <br><br><button type="submit" id="createBook">Create</button>
+  </form>
+</body>
+</html>

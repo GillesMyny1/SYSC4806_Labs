@@ -9,11 +9,9 @@
     <form th:action="@{/addBuddyToAddressBook}" method="post">
         <label for="addressBookId">Address Book ID:</label>
         <input type="text" id="addressBookId" name="addressBookId" required>
-        <br>
-        <label for="buddyId">Buddy Info ID:</label>
+        <br><br><label for="buddyId">Buddy Info ID:</label>
         <input type="text" id="buddyId" name="buddyId" required>
-        <br>
-        <button type="submit">Add Buddy to Address Book</button>
+        <br><br><button type="submit" id="addBuddyToBookButton">Add Buddy to Address Book</button>
     </form>
 </body>
 </html>

@@ -48,7 +48,7 @@ public class BuddyInfo {
         this.address = newAddress;
     }
 
-    public int getPhoneNumber() {
+    public Integer getPhoneNumber() {
         return this.phoneNumber;
     }
 

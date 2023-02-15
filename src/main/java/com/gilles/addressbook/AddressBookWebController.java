@@ -18,8 +18,21 @@ public class AddressBookWebController {
 
     @RequestMapping("/bookUI")
     public String displayBooks(Model model) {
-        model.addAttribute("bookDisplay", addressBookRepository.findAll());
+        model.addAttribute("addressBookList", addressBookRepository.findAll());
+        model.addAttribute("buddiesList", buddyInfoRepository.findAll());
         return "bookDisplay";
+    }
+
+    @GetMapping("/createBookUI")
+    public String bookCreate(Model model) {
+        model.addAttribute("newBook", addressBookRepository.findAll());
+        return "bookCreation";
+    }
+
+    @PostMapping("/createBookUI")
+    public String addNewAddressBook() {
+        addressBookRepository.save(new AddressBook());
+        return "redirect:/bookUI";
     }
 
     @GetMapping("/createBuddyUI")
@@ -31,7 +44,8 @@ public class AddressBookWebController {
     @PostMapping("/createBuddyUI")
     public String buddySubmit(@ModelAttribute BuddyInfo buddy, Model model) {
         model.addAttribute("buddy", buddy);
-        return "buddyCreateResult";
+        buddyInfoRepository.save(buddy);
+        return "redirect:/bookUI";
     }
 
     @GetMapping("/addBuddyToAddressBook")
