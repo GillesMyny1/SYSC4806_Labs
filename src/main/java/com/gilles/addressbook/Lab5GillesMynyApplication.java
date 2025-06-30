@@ -1,6 +1,5 @@
 /**
  * Gilles Myny
- * 101145477
  */
 package com.gilles.addressbook;
 
